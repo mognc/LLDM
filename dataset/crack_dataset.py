@@ -56,15 +56,14 @@ class CelebDataset(Dataset):
         """
         assert os.path.exists(im_path), "images path {} does not exist".format(im_path)
         ims = []
-        fnames = glob.glob(os.path.join(im_path, 'CelebA-HQ-img/*.{}'.format('png')))
-        fnames += glob.glob(os.path.join(im_path, 'CelebA-HQ-img/*.{}'.format('jpg')))
-        fnames += glob.glob(os.path.join(im_path, 'CelebA-HQ-img/*.{}'.format('jpeg')))
+        fnames = glob.glob(os.path.join(im_path, 'Cracks_img/*.{}'.format('png')))
+        fnames += glob.glob(os.path.join(im_path, 'Cracks_img/*.{}'.format('jpg')))
+        fnames += glob.glob(os.path.join(im_path, 'Cracks_img/*.{}'.format('jpeg')))
         texts = []
         masks = []
         
         if 'image' in self.condition_types:
-            label_list = ['skin', 'nose', 'eye_g', 'l_eye', 'r_eye', 'l_brow', 'r_brow', 'l_ear', 'r_ear', 'mouth',
-                          'u_lip', 'l_lip', 'hair', 'hat', 'ear_r', 'neck_l', 'neck', 'cloth']
+            label_list = ['cracks', 'wall', 'surface', 'snow', 'dust', 'crack', 'concreate', 'rain']
             self.idx_to_cls_map = {idx: label_list[idx] for idx in range(len(label_list))}
             self.cls_to_idx_map = {label_list[idx]: idx for idx in range(len(label_list))}
         
@@ -74,7 +73,7 @@ class CelebDataset(Dataset):
             if 'text' in self.condition_types:
                 im_name = os.path.split(fname)[1].split('.')[0]
                 captions_im = []
-                with open(os.path.join(im_path, 'celeba-caption/{}.txt'.format(im_name))) as f:
+                with open(os.path.join(im_path, 'Cracks_caption/{}.txt'.format(im_name))) as f:
                     for line in f.readlines():
                         captions_im.append(line.strip())
                 texts.append(captions_im)

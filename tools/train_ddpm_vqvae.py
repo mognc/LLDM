@@ -5,8 +5,7 @@ import os
 import numpy as np
 from tqdm import tqdm
 from torch.optim import Adam
-from dataset.mnist_dataset import MnistDataset
-from dataset.celeb_dataset import CelebDataset
+from dataset.crack_dataset import CrackDataset
 from torch.utils.data import DataLoader
 from models.unet_base import Unet
 from models.vqvae import VQVAE
@@ -37,8 +36,7 @@ def train(args):
                                      beta_end=diffusion_config['beta_end'])
     
     im_dataset_cls = {
-        'mnist': MnistDataset,
-        'celebhq': CelebDataset,
+        'crack': CrackDataset
     }.get(dataset_config['name'])
     
     im_dataset = im_dataset_cls(split='train',
