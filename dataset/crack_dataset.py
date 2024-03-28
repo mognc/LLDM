@@ -10,7 +10,7 @@ from tqdm import tqdm
 from torch.utils.data.dataset import Dataset
 
 
-class CelebDataset(Dataset):
+class CrackDataset(Dataset):
     r"""
     Celeb dataset will by default centre crop and resize the images.
     This can be replaced by any other dataset. As long as all the images

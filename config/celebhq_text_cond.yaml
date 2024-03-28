@@ -1,8 +1,8 @@
 dataset_params:
-  im_path: 'data/CelebAMask-HQ'
+  im_path: 'data/Cracks_data'
   im_channels : 3
   im_size : 256
-  name: 'celebhq'
+  name: 'crack'
 
 diffusion_params:
   num_timesteps : 1000
@@ -45,7 +45,7 @@ autoencoder_params:
 
 train_params:
   seed : 1111
-  task_name: 'celebhq'
+  task_name: 'crack'
   ldm_batch_size: 16
   autoencoder_batch_size: 4
   disc_start: 15000
@@ -62,7 +62,7 @@ train_params:
   autoencoder_lr: 0.00001
   autoencoder_acc_steps: 4
   autoencoder_img_save_steps: 64
-  save_latents : False
+  save_latents : True
   cf_guidance_scale : 1.0
   vae_latent_dir_name: 'vae_latents'
   vqvae_latent_dir_name: 'vqvae_latents'
