@@ -30,8 +30,8 @@ def sample(model, scheduler, train_config, diffusion_model_config,
     ###############################################
     
     ############ Create Conditional input ###############
-    text_prompt = ['She is a woman with blond hair. She is wearing lipstick.']
-    neg_prompt = ['He is a man.']
+    text_prompt = ['wall with cracks.']
+    neg_prompt = ['it is a stick.']
     empty_prompt = ['']
     text_prompt_embed = get_text_representation(text_prompt,
                                                 text_tokenizer,
