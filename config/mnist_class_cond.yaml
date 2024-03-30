@@ -1,8 +1,8 @@
 dataset_params:
-  im_path: 'data/mnist/train/images'
-  im_channels : 1
-  im_size : 28
-  name: 'mnist'
+  im_path: 'data/Cracks_data'
+  im_channels : 3
+  im_size : 64
+  name: 'crack'
 
 diffusion_params:
   num_timesteps : 1000
@@ -42,17 +42,17 @@ autoencoder_params:
 
 train_params:
   seed : 1111
-  task_name: 'mnist'
-  ldm_batch_size: 64
-  autoencoder_batch_size: 64
-  disc_start: 1000
+  task_name: 'crack'
+  ldm_batch_size: 4
+  autoencoder_batch_size: 4
+  disc_start: 50
   disc_weight: 0.5
   codebook_weight: 1
   commitment_beta: 0.2
   perceptual_weight: 1
   kl_weight: 0.000005
-  ldm_epochs : 100
-  autoencoder_epochs : 10
+  ldm_epochs : 1000
+  autoencoder_epochs : 100
   num_samples : 25
   num_grid_rows : 5
   ldm_lr: 0.00001

@@ -9,9 +9,7 @@ import yaml
 from torch.utils.data.dataloader import DataLoader
 from torchvision.utils import make_grid
 from tqdm import tqdm
-
-from dataset.celeb_dataset import CelebDataset
-from dataset.mnist_dataset import MnistDataset
+from dataset.crack_dataset import CrackDataset
 from models.vqvae import VQVAE
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -32,8 +30,7 @@ def infer(args):
     
     # Create the dataset
     im_dataset_cls = {
-        'mnist': MnistDataset,
-        'celebhq': CelebDataset,
+        'crack': CrackDataset
     }.get(dataset_config['name'])
     
     im_dataset = im_dataset_cls(split='train',
