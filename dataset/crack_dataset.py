@@ -117,6 +117,8 @@ class CrackDataset(Dataset):
         if 'image' in self.condition_types:
             mask = self.get_mask(index)
             cond_inputs['image'] = mask
+        if 'class' in self.condition_types:
+            cond_inputs['class'] = self.labels[index]
         #######################################
         
         if self.use_latents:
